@@ -207,7 +207,7 @@ contract DividendDistributor is IDividendDistributor {
     constructor (address _router) {
         router = _router != address(0)
             ? IDEXRouter(_router)
-            : IDEXRouter(0x250d48C5E78f1E85F7AB07FEC61E93ba703aE668);
+            : IDEXRouter(0x342e18e9afbfd3239220026ccceb595b350ae5fc);
         _token = msg.sender;
     }
 
@@ -391,7 +391,7 @@ contract Pumper2 is IBEP20, Auth {
     modifier swapping() { inSwap = true; _; inSwap = false; }
 
     constructor () Auth(msg.sender) {
-        router = IDEXRouter(0x250d48C5E78f1E85F7AB07FEC61E93ba703aE668);
+        router = IDEXRouter(0x342e18e9afbfd3239220026ccceb595b350ae5fc);
         pair = IDEXFactory(router.factory()).createPair(WBNB, address(this));
         _allowances[address(this)][address(router)] = uint256(-1);
 
